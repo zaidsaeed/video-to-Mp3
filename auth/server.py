@@ -7,7 +7,7 @@ from flask_mysqldb import MySQL
 server = Flask(__name__)
 mysql = MySQL(server)
 
-# # config
+# config
 server.config["MYSQL_HOST"] = os.environ.get("MYSQL_HOST")
 server.config["MYSQL_USER"] = os.environ.get("MYSQL_USER")
 server.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD")
@@ -37,7 +37,7 @@ def login():
         else:
             return createJWT(auth.username, os.environ.get("JWT_SECRET"), True)
     else:
-        return "invalide credentials", 401
+        return "invalid credentials", 401
 
 
 @server.route("/validate", methods=["POST"])
